@@ -1,0 +1,76 @@
+OneTime CloudAgent Loads:
+app_menus
+app_pages
+app_modules
+App_ParameterTypes
+App_Parameter
+role
+Integration
+OneTimeLoads-Relations:
+App_ParameterRoles
+module_pages
+module_menus
+
+CloudAgent Config Tables:
+URL_MAPS
+app_account
+app_user
+PreviewData_Map
+campaign
+location
+dialout_number
+skill
+fwp_numbers
+agent
+Disposition
+Groups
+
+CloudAgent User-Relations:
+campaign_skills
+skill_agents
+skill_fwpNumbers
+campaign_user
+Rel_Camp_Disp
+Group_Agents
+User_Groups
+user_modules
+user_role
+App_UserParameter
+User_Integration - json not loading
+campaign_config
+pause_reason
+RetryConfig
+SMS_Template
+CampaignConfigration
+Skill_DropActions
+IVR_FlowDetails
+Transfer_Numbers
+sip_location
+EmailConfiguration
+sip_subscribe
+
+KooKoo Tables:
+jos_users
+tel_locations
+tel_pri_details
+jos_user_conf
+tel_dids
+jos_plan_v1
+
+No Data:
+App_Locations - NO Data on CCAAS
+App_Operators - No Data on CCAAS
+App_Process - No Data on CCAAS
+DNC_REGULATIONS - No Data on CCAAS
+App_Groups - No Data
+App_IVR - No Data
+
+Need to move Manually:  
+preview_data
+App_BlockedNo_BlockedNoGroups
+App_Camp_BlockedNumberGroups
+App_BlockedNumber_Groups
+App_BlockedNumbers
+App_Threshold
+FeedBack
+FeedBack_Master

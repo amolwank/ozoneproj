@@ -1,0 +1,958 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<job>
+  <name>ObjectCreation</name>
+  <description/>
+  <extended_description/>
+  <job_version/>
+  <job_status>0</job_status>
+  <directory>/</directory>
+  <created_user>-</created_user>
+  <created_date>2021/10/01 14:20:38.872</created_date>
+  <modified_user>-</modified_user>
+  <modified_date>2021/10/01 14:20:38.872</modified_date>
+  <parameters>
+    <parameter>
+      <name>pDate</name>
+      <default_value/>
+      <description/>
+    </parameter>
+    <parameter>
+      <name>pS3AccessKey</name>
+      <default_value/>
+      <description/>
+    </parameter>
+    <parameter>
+      <name>pS3Credential</name>
+      <default_value/>
+      <description/>
+    </parameter>
+    <parameter>
+      <name>pS3Path</name>
+      <default_value/>
+      <description/>
+    </parameter>
+    <parameter>
+      <name>pS3RegionName</name>
+      <default_value/>
+      <description/>
+    </parameter>
+    <parameter>
+      <name>pS3ResultLocation</name>
+      <default_value/>
+      <description/>
+    </parameter>
+    <parameter>
+      <name>pS3SecretKey</name>
+      <default_value/>
+      <description/>
+    </parameter>
+    <parameter>
+      <name>pUserName</name>
+      <default_value/>
+      <description/>
+    </parameter>
+    <parameter>
+      <name>pUserS3Path</name>
+      <default_value/>
+      <description/>
+    </parameter>
+  </parameters>
+  <connection>
+    <name>Athena</name>
+    <server/>
+    <type>GENERIC</type>
+    <access>Native</access>
+    <database/>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>CUSTOM_DRIVER_CLASS</code>
+        <attribute>com.simba.athena.jdbc.Driver</attribute>
+      </attribute>
+      <attribute>
+        <code>CUSTOM_URL</code>
+        <attribute>jdbc:awsathena://AwsRegion=${pS3RegionName};User=${pS3AccessKey};Password=${pS3SecretKey};S3OutputLocation=${pS3Path}/${pS3ResultLocation}/;</attribute>
+      </attribute>
+      <attribute>
+        <code>DATABASE_DIALECT_ID</code>
+        <attribute>Generic database</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_GENERIC.MetadataRetrievalMethod</code>
+        <attribute>Query</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1521</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <slaveservers>
+    </slaveservers>
+  <job-log-table>
+    <connection/>
+    <schema/>
+    <table/>
+    <size_limit_lines/>
+    <interval/>
+    <timeout_days/>
+    <field>
+      <id>ID_JOB</id>
+      <enabled>Y</enabled>
+      <name>ID_JOB</name>
+    </field>
+    <field>
+      <id>CHANNEL_ID</id>
+      <enabled>Y</enabled>
+      <name>CHANNEL_ID</name>
+    </field>
+    <field>
+      <id>JOBNAME</id>
+      <enabled>Y</enabled>
+      <name>JOBNAME</name>
+    </field>
+    <field>
+      <id>STATUS</id>
+      <enabled>Y</enabled>
+      <name>STATUS</name>
+    </field>
+    <field>
+      <id>LINES_READ</id>
+      <enabled>Y</enabled>
+      <name>LINES_READ</name>
+    </field>
+    <field>
+      <id>LINES_WRITTEN</id>
+      <enabled>Y</enabled>
+      <name>LINES_WRITTEN</name>
+    </field>
+    <field>
+      <id>LINES_UPDATED</id>
+      <enabled>Y</enabled>
+      <name>LINES_UPDATED</name>
+    </field>
+    <field>
+      <id>LINES_INPUT</id>
+      <enabled>Y</enabled>
+      <name>LINES_INPUT</name>
+    </field>
+    <field>
+      <id>LINES_OUTPUT</id>
+      <enabled>Y</enabled>
+      <name>LINES_OUTPUT</name>
+    </field>
+    <field>
+      <id>LINES_REJECTED</id>
+      <enabled>Y</enabled>
+      <name>LINES_REJECTED</name>
+    </field>
+    <field>
+      <id>ERRORS</id>
+      <enabled>Y</enabled>
+      <name>ERRORS</name>
+    </field>
+    <field>
+      <id>STARTDATE</id>
+      <enabled>Y</enabled>
+      <name>STARTDATE</name>
+    </field>
+    <field>
+      <id>ENDDATE</id>
+      <enabled>Y</enabled>
+      <name>ENDDATE</name>
+    </field>
+    <field>
+      <id>LOGDATE</id>
+      <enabled>Y</enabled>
+      <name>LOGDATE</name>
+    </field>
+    <field>
+      <id>DEPDATE</id>
+      <enabled>Y</enabled>
+      <name>DEPDATE</name>
+    </field>
+    <field>
+      <id>REPLAYDATE</id>
+      <enabled>Y</enabled>
+      <name>REPLAYDATE</name>
+    </field>
+    <field>
+      <id>LOG_FIELD</id>
+      <enabled>Y</enabled>
+      <name>LOG_FIELD</name>
+    </field>
+    <field>
+      <id>EXECUTING_SERVER</id>
+      <enabled>N</enabled>
+      <name>EXECUTING_SERVER</name>
+    </field>
+    <field>
+      <id>EXECUTING_USER</id>
+      <enabled>N</enabled>
+      <name>EXECUTING_USER</name>
+    </field>
+    <field>
+      <id>START_JOB_ENTRY</id>
+      <enabled>N</enabled>
+      <name>START_JOB_ENTRY</name>
+    </field>
+    <field>
+      <id>CLIENT</id>
+      <enabled>N</enabled>
+      <name>CLIENT</name>
+    </field>
+  </job-log-table>
+  <jobentry-log-table>
+    <connection/>
+    <schema/>
+    <table/>
+    <timeout_days/>
+    <field>
+      <id>ID_BATCH</id>
+      <enabled>Y</enabled>
+      <name>ID_BATCH</name>
+    </field>
+    <field>
+      <id>CHANNEL_ID</id>
+      <enabled>Y</enabled>
+      <name>CHANNEL_ID</name>
+    </field>
+    <field>
+      <id>LOG_DATE</id>
+      <enabled>Y</enabled>
+      <name>LOG_DATE</name>
+    </field>
+    <field>
+      <id>JOBNAME</id>
+      <enabled>Y</enabled>
+      <name>TRANSNAME</name>
+    </field>
+    <field>
+      <id>JOBENTRYNAME</id>
+      <enabled>Y</enabled>
+      <name>STEPNAME</name>
+    </field>
+    <field>
+      <id>LINES_READ</id>
+      <enabled>Y</enabled>
+      <name>LINES_READ</name>
+    </field>
+    <field>
+      <id>LINES_WRITTEN</id>
+      <enabled>Y</enabled>
+      <name>LINES_WRITTEN</name>
+    </field>
+    <field>
+      <id>LINES_UPDATED</id>
+      <enabled>Y</enabled>
+      <name>LINES_UPDATED</name>
+    </field>
+    <field>
+      <id>LINES_INPUT</id>
+      <enabled>Y</enabled>
+      <name>LINES_INPUT</name>
+    </field>
+    <field>
+      <id>LINES_OUTPUT</id>
+      <enabled>Y</enabled>
+      <name>LINES_OUTPUT</name>
+    </field>
+    <field>
+      <id>LINES_REJECTED</id>
+      <enabled>Y</enabled>
+      <name>LINES_REJECTED</name>
+    </field>
+    <field>
+      <id>ERRORS</id>
+      <enabled>Y</enabled>
+      <name>ERRORS</name>
+    </field>
+    <field>
+      <id>RESULT</id>
+      <enabled>Y</enabled>
+      <name>RESULT</name>
+    </field>
+    <field>
+      <id>NR_RESULT_ROWS</id>
+      <enabled>Y</enabled>
+      <name>NR_RESULT_ROWS</name>
+    </field>
+    <field>
+      <id>NR_RESULT_FILES</id>
+      <enabled>Y</enabled>
+      <name>NR_RESULT_FILES</name>
+    </field>
+    <field>
+      <id>LOG_FIELD</id>
+      <enabled>N</enabled>
+      <name>LOG_FIELD</name>
+    </field>
+    <field>
+      <id>COPY_NR</id>
+      <enabled>N</enabled>
+      <name>COPY_NR</name>
+    </field>
+  </jobentry-log-table>
+  <channel-log-table>
+    <connection/>
+    <schema/>
+    <table/>
+    <timeout_days/>
+    <field>
+      <id>ID_BATCH</id>
+      <enabled>Y</enabled>
+      <name>ID_BATCH</name>
+    </field>
+    <field>
+      <id>CHANNEL_ID</id>
+      <enabled>Y</enabled>
+      <name>CHANNEL_ID</name>
+    </field>
+    <field>
+      <id>LOG_DATE</id>
+      <enabled>Y</enabled>
+      <name>LOG_DATE</name>
+    </field>
+    <field>
+      <id>LOGGING_OBJECT_TYPE</id>
+      <enabled>Y</enabled>
+      <name>LOGGING_OBJECT_TYPE</name>
+    </field>
+    <field>
+      <id>OBJECT_NAME</id>
+      <enabled>Y</enabled>
+      <name>OBJECT_NAME</name>
+    </field>
+    <field>
+      <id>OBJECT_COPY</id>
+      <enabled>Y</enabled>
+      <name>OBJECT_COPY</name>
+    </field>
+    <field>
+      <id>REPOSITORY_DIRECTORY</id>
+      <enabled>Y</enabled>
+      <name>REPOSITORY_DIRECTORY</name>
+    </field>
+    <field>
+      <id>FILENAME</id>
+      <enabled>Y</enabled>
+      <name>FILENAME</name>
+    </field>
+    <field>
+      <id>OBJECT_ID</id>
+      <enabled>Y</enabled>
+      <name>OBJECT_ID</name>
+    </field>
+    <field>
+      <id>OBJECT_REVISION</id>
+      <enabled>Y</enabled>
+      <name>OBJECT_REVISION</name>
+    </field>
+    <field>
+      <id>PARENT_CHANNEL_ID</id>
+      <enabled>Y</enabled>
+      <name>PARENT_CHANNEL_ID</name>
+    </field>
+    <field>
+      <id>ROOT_CHANNEL_ID</id>
+      <enabled>Y</enabled>
+      <name>ROOT_CHANNEL_ID</name>
+    </field>
+  </channel-log-table>
+  <pass_batchid>N</pass_batchid>
+  <shared_objects_file/>
+  <entries>
+    <entry>
+      <name>Start</name>
+      <description/>
+      <type>SPECIAL</type>
+      <attributes/>
+      <start>Y</start>
+      <dummy>N</dummy>
+      <repeat>N</repeat>
+      <schedulerType>0</schedulerType>
+      <intervalSeconds>0</intervalSeconds>
+      <intervalMinutes>60</intervalMinutes>
+      <hour>12</hour>
+      <minutes>0</minutes>
+      <weekDay>1</weekDay>
+      <DayOfMonth>1</DayOfMonth>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>80</xloc>
+      <yloc>112</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>OnlyPartitions</name>
+      <description/>
+      <type>SQL</type>
+      <attributes/>
+      <sql>ALTER TABLE ${pUserName}.agentdata ADD IF NOT EXISTS PARTITION (dt='${pDate}');
+
+ALTER TABLE ${pUserName}.report ADD IF NOT EXISTS PARTITION (dt='${pDate}');
+
+ALTER TABLE ${pUserName}.chat ADD IF NOT EXISTS PARTITION (dt='${pDate}');
+
+ALTER TABLE ${pUserName}.ivrfeedbackdetails ADD IF NOT EXISTS PARTITION (dt='${pDate}');
+
+ALTER TABLE ${pUserName}.checkpointlogs ADD IF NOT EXISTS PARTITION (dt='${pDate}');
+
+ALTER TABLE ${pUserName}.ivrdisconnect ADD IF NOT EXISTS PARTITION (dt='${pDate}');
+
+ALTER TABLE ${pUserName}.agentholddetails ADD IF NOT EXISTS PARTITION (dt='${pDate}');
+
+ALTER TABLE ${pUserName}.callerconfdetails ADD IF NOT EXISTS PARTITION (dt='${pDate}');
+
+ALTER TABLE ${pUserName}.auditlog ADD IF NOT EXISTS PARTITION (dt='${pDate}');
+
+ALTER TABLE ${pUserName}.custcallbacks ADD IF NOT EXISTS PARTITION (dt='${pDate}');
+
+ALTER TABLE ${pUserName}.missedcalls ADD IF NOT EXISTS PARTITION (dt='${pDate}');
+
+ALTER TABLE ${pUserName}.previewdataauditlog ADD IF NOT EXISTS PARTITION (dt='${pDate}');
+
+ALTER TABLE ${pUserName}.callinboundlogs ADD IF NOT EXISTS PARTITION (dt='${pDate}');
+
+ALTER TABLE ${pUserName}.agentscreenrecording ADD IF NOT EXISTS PARTITION (dt='${pDate}');</sql>
+      <useVariableSubstitution>T</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>Athena</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>288</xloc>
+      <yloc>112</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Success 2</name>
+      <description/>
+      <type>SUCCESS</type>
+      <attributes/>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>800</xloc>
+      <yloc>112</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>AllObjects</name>
+      <description/>
+      <type>SQL</type>
+      <attributes/>
+      <sql>create database if not exists ${pUserName};
+
+CREATE EXTERNAL TABLE if not exists ${pUserName}.agentdata (
+  `seqid` bigint, 
+  `agentid` bigint,
+  `agent_id` string, 
+  `agentname` string, 
+  `startdate` timestamp, 
+  `enddate` timestamp, 
+  `event` string, 
+  `eventdetails` string, 
+  `miscdetails` string, 
+  `ucid` decimal(38,0),
+  `data_id` bigint,
+  `modetype` string,
+  `user_id` bigint,
+  `username` string
+)
+PARTITIONED BY (dt Date)
+STORED AS PARQUET
+LOCATION '${pUserS3Path}/customers/user=${pUserName}/db=cloudagent/table=agentdata'; 
+
+ALTER TABLE ${pUserName}.agentdata ADD IF NOT EXISTS PARTITION (dt='${pDate}');
+
+
+CREATE EXTERNAL TABLE if not exists ${pUserName}.report (
+  `ucid` decimal(38,0),
+  `report_id` bigint, 
+  `StartTime` timestamp, 
+  `EndTime` timestamp, 
+  `call_data` string, 
+  `dest` string, 
+  `location` string,
+  `status` string,
+  `campaign_id` bigint,
+  `campaignname` string,
+  `agentname` string,
+  `tried_number` int,
+  `data_id` bigint,
+  `audio_file` string,
+  `disposition` string,
+  `tta` timestamp,
+  `hangupby` string,
+  `monitor_ucid` decimal(38,0),
+  `agent_id` bigint,
+  `agentid` string,
+  `dialout_id` bigint,
+  `skill_id` bigint,
+  `skillname` string,
+  `dialoutname` string,
+  `comment` string,
+  `uui` string,
+  `did` string,
+  `type` string,
+  `transfer_agentid` bigint,
+  `transferskill_id` bigint,
+  `transferagent` string,
+  `transfer_type` string,
+  `transferskillname` string,
+  `transfer_number` string,
+  `blind_transfer` int,
+  `campaigntype` string,
+  `dial_status` string,
+  `call_completed` int,
+  `customer_status` string,
+  `agent_status` string,
+  `pri_id` bigint,
+  `fwp_id` bigint,
+  `reference_no` string,
+  `dialednumber` string,
+  `phonename` string,
+  `holdduration` int,
+  `wrapupstarttime` timestamp,
+  `wrapupendtime` timestamp,
+  `agenttta` timestamp,
+  `customertta` timestamp,
+  `user_id` bigint,
+  `username` string,
+  `videorecordingurl` string
+)
+PARTITIONED BY (dt Date)
+STORED AS PARQUET
+LOCATION '${pUserS3Path}/customers/user=${pUserName}/db=cloudagent/table=report'; 
+
+ALTER TABLE ${pUserName}.report ADD IF NOT EXISTS PARTITION (dt='${pDate}');
+
+CREATE EXTERNAL TABLE if not exists ${pUserName}.chat (
+  `ucid` decimal(38,0),
+  `report_id` bigint, 
+  `StartTime` timestamp, 
+  `EndTime` timestamp, 
+  `call_data` string, 
+  `status` string,
+  `campaign_id` bigint,
+  `campaignname` string,
+  `agentname` string,
+  `audio_file` string,
+  `disposition` string,
+  `tta` timestamp,
+  `hangupby` string,
+  `monitor_ucid` decimal(38,0),
+  `agent_id` bigint,
+  `agentid` string,
+  `skill_id` bigint,
+  `skillname` string,
+  `comment` string,
+  `uui` string,
+  `did` string,
+  `type` string,
+  `transfer_agentid` bigint,
+  `transferskill_id` bigint,
+  `transferagent` string,
+  `transfer_type` string,
+  `transferskillname` string,
+  `transfer_number` string,
+  `campaigntype` string,
+  `call_completed` int,
+  `customer_status` string,
+  `agent_status` string,
+  `wrapupstarttime` timestamp,
+  `wrapupendtime` timestamp,
+  `agenttta` timestamp,
+  `customertta` timestamp,
+  `sessionid` string,
+  `customername` string,
+  `customermail` string,
+  `user_id` bigint,
+  `username` string
+)
+PARTITIONED BY (dt Date)
+STORED AS PARQUET
+LOCATION '${pUserS3Path}/customers/user=${pUserName}/db=cloudagent/table=chat'; 
+
+ALTER TABLE ${pUserName}.chat ADD IF NOT EXISTS PARTITION (dt='${pDate}');
+
+CREATE EXTERNAL TABLE if not exists ${pUserName}.ivrfeedbackdetails (
+  `ucid` decimal(38,0),
+  `feedbackid` int,
+  `callernumber` string,
+  `callednumber` string,
+  `skillid` int,
+  `skillname` string,
+  `agentname` string,
+  `starttime` timestamp,
+  `endtime` timestamp,
+  `optionno` int,
+  `optionresponse` string,
+  `comments` string,
+  `campaignid` int,
+  `campaignname` string,
+  `extradata` string,
+  `feedbackrecordingurl` string,
+  `feedback` string,
+  `user_id` bigint,
+  `username` string
+)
+PARTITIONED BY (dt Date)
+STORED AS PARQUET
+LOCATION '${pUserS3Path}/customers/user=${pUserName}/db=custivr/table=ivrfeedbackdetails'; 
+
+ALTER TABLE ${pUserName}.ivrfeedbackdetails ADD IF NOT EXISTS PARTITION (dt='${pDate}');
+
+CREATE EXTERNAL TABLE if not exists ${pUserName}.checkpointlogs (
+  `seqid` bigint,
+  `ucid` decimal(38,0),
+  `campaignid` bigint,
+  `campaignname` string,
+  `pid` bigint,
+  `callernumber` string,
+  `circleid` bigint,
+  `circle` string,
+  `operatorid` bigint,
+  `operator` string,
+  `calldate` date,
+  `calltime` string,
+  `checkpointid` string,
+  `inputprovided` string,
+  `outputresponse` string,
+  `user_id` bigint,
+  `username` string
+)
+PARTITIONED BY (dt Date)
+STORED AS PARQUET
+LOCATION '${pUserS3Path}/customers/user=${pUserName}/db=cloudagent/table=checkpointlogs'; 
+
+ALTER TABLE ${pUserName}.checkpointlogs ADD IF NOT EXISTS PARTITION (dt='${pDate}');
+
+CREATE EXTERNAL TABLE if not exists ${pUserName}.ivrdisconnect (
+  `callid` decimal(38,0),
+  `campaignid` bigint,
+  `campaignname` string,
+  `calltype` string,
+  `callerno` string,
+  `calledno` string,
+  `starttime` timestamp,
+  `endtime` timestamp,
+  `disconnecttype` string,
+  `lastcheckpoint` string,
+  `ivrflow` string,
+  `user_id` bigint,
+  `username` string
+)
+PARTITIONED BY (dt Date)
+STORED AS PARQUET
+LOCATION '${pUserS3Path}/customers/user=${pUserName}/db=cloudagent/table=ivrdisconnect'; 
+
+ALTER TABLE ${pUserName}.ivrdisconnect ADD IF NOT EXISTS PARTITION (dt='${pDate}');
+
+CREATE EXTERNAL TABLE if not exists ${pUserName}.agentholddetails (
+  `ucid` decimal(38,0),
+  `campaignid` bigint,
+  `campaignname` string,
+  `callerno` string,
+  `agentid` bigint,
+  `agent_id` string,
+  `agentname` string,
+  `duration` string,
+  `callstarttime` timestamp,
+  `holdtimestarted` string,
+  `holdtimeended` string,
+  `starttime` timestamp,
+  `endtime` timestamp,
+  `user_id` bigint,
+  `username` string
+)
+PARTITIONED BY (dt Date)
+STORED AS PARQUET
+LOCATION '${pUserS3Path}/customers/user=${pUserName}/db=cloudagent/table=agentholddetails'; 
+
+ALTER TABLE ${pUserName}.agentholddetails ADD IF NOT EXISTS PARTITION (dt='${pDate}');
+
+CREATE EXTERNAL TABLE if not exists ${pUserName}.callerconfdetails (
+  `seqid` bigint,
+  `ucid` decimal(38,0),
+  `callid` decimal(38,0),
+  `confcreatoragentid` bigint,
+  `confcreatorphoneid` bigint,
+  `confcreatorphoneno` string,
+  `confcreatoragent_id` string,
+  `confcreatoragentname` string,
+  `starttime` timestamp,
+  `endtime` timestamp,
+  `conf_ucid` decimal(38,0),
+  `confparticipantagnentid` bigint,
+  `confparticipantphoneid` bigint,
+  `confparticipantphoneno` string,
+  `confparticipantagent_id` string,
+  `confparticipantagentname` string,
+  `dialstatus` string,
+  `pickuptime` timestamp,
+  `exitstatus` string,
+  `audiofile` string,
+  `user_id` bigint,
+  `username` string,
+  `did` string,
+  `confholdduration` bigint,
+  `createddatetime` timestamp,
+  `modifieddatetime` timestamp
+)
+PARTITIONED BY (dt Date)
+STORED AS PARQUET
+LOCATION '${pUserS3Path}/customers/user=${pUserName}/db=cloudagent/table=callerconfdetails'; 
+
+ALTER TABLE ${pUserName}.callerconfdetails ADD IF NOT EXISTS PARTITION (dt='${pDate}'); 
+
+CREATE EXTERNAL TABLE if not exists ${pUserName}.auditlog (
+  `seqid` bigint,
+  `module` string,
+  `action` string,
+  `logdatetime` timestamp,
+  `logstatus` string,
+  `is_admin` string,
+  `description` string,
+  `ipaddress` string,
+  `activityuser` string,
+  `parentuser` string,
+  `user_id` bigint,
+  `username` string
+)
+PARTITIONED BY (dt Date)
+STORED AS PARQUET
+LOCATION '${pUserS3Path}/customers/user=${pUserName}/db=cloudagent/table=auditlog'; 
+
+ALTER TABLE ${pUserName}.auditlog ADD IF NOT EXISTS PARTITION (dt='${pDate}'); 
+
+CREATE EXTERNAL TABLE if not exists ${pUserName}.previewdataauditlog (
+  `seqid` bigint,
+  `previewdataid` bigint,
+  `phonenumber` string,
+  `agentid` bigint,
+  `agent_id` string,
+  `agentname` string,
+  `uui` string,
+  `dateadded` timestamp,
+  `dateassigned` timestamp,
+  `actionperformed` string,
+  `dateupdated` timestamp,
+  `campaignid` bigint,
+  `campaignname` string,
+  `disposition` string,
+  `comments` string,
+  `user_id` bigint,
+  `username` string
+)
+PARTITIONED BY (dt Date)
+STORED AS PARQUET
+LOCATION '${pUserS3Path}/customers/user=${pUserName}/db=cloudagent/table=previewdataauditlog'; 
+
+ALTER TABLE ${pUserName}.previewdataauditlog ADD IF NOT EXISTS PARTITION (dt='${pDate}'); 
+
+
+CREATE EXTERNAL TABLE if not exists ${pUserName}.missedcalls (
+  `callerno` string,
+  `callcount` int,
+  `duration` string,
+  `lastcalltime` timestamp,
+  `firstcalltime` timestamp,
+  `lastcallendtime` timestamp,
+  `skillname` string,
+  `fallbackrule` string,
+  `user_id` bigint,
+  `username` string
+)
+PARTITIONED BY (dt Date)
+STORED AS PARQUET
+LOCATION '${pUserS3Path}/customers/user=${pUserName}/db=cloudagent/table=missedcalls'; 
+
+ALTER TABLE ${pUserName}.missedcalls ADD IF NOT EXISTS PARTITION (dt='${pDate}'); 
+
+
+CREATE EXTERNAL TABLE if not exists ${pUserName}.custcallbacks (
+  `callerno` string,
+  `misscallid` decimal(38,0),
+  `misscallstarttime` timestamp,
+  `misscallendtime` timestamp,
+  `misscallskillname` string,
+  `misscallfallback` string,
+  `callbackcallid` decimal(38,0),
+  `callbackstarttime` timestamp,
+  `callbackendtime` timestamp,
+  `callbackskillname` string,
+  `callbackfallbackrule` string,
+  `callbacktalktime` string,
+  `callbackagent` string,
+  `callbackphone` string,
+  `callaudiourl` string,
+  `user_id` bigint,
+  `username` string
+)
+PARTITIONED BY (dt Date)
+STORED AS PARQUET
+LOCATION '${pUserS3Path}/customers/user=${pUserName}/db=cloudagent/table=custcallbacks'; 
+
+ALTER TABLE ${pUserName}.custcallbacks ADD IF NOT EXISTS PARTITION (dt='${pDate}'); 
+
+CREATE EXTERNAL TABLE if not exists ${pUserName}.callinboundlogs (
+  `callid` decimal(38,0),
+  `campaignid` bigint,
+  `campaignname` string,
+  `refcampaignid` bigint,
+  `calledno` string,
+  `callerno` string,
+  `circle` string,
+  `operator` string,
+  `calldate` date,
+  `calltime` string,
+  `user_id` bigint,
+  `username` string
+)
+PARTITIONED BY (dt Date)
+STORED AS PARQUET
+LOCATION '${pS3Path}/customers/user=${pUserName}/db=cloudagent/table=callinboundlogs'; 
+
+ALTER TABLE ${pUserName}.callinboundlogs ADD IF NOT EXISTS PARTITION (dt='${pDate}');  
+
+CREATE EXTERNAL TABLE if not exists ${pUserName}.agentscreenrecording (
+  `seqid` decimal(38,0),
+  `agentid` bigint,
+  `agent_id` string,
+  `agent_name` string,
+  `starttime` timestamp,
+  `endtime` timestamp,
+  `videorecordingurl` string,
+  `user_id` bigint,
+  `username` string
+)
+PARTITIONED BY (dt Date)
+STORED AS PARQUET
+LOCATION '${pS3Path}/customers/user=${pUserName}/db=cloudagent/table=agentscreenrecording'; 
+
+ALTER TABLE ${pUserName}.agentscreenrecording ADD IF NOT EXISTS PARTITION (dt='${pDate}'); 
+</sql>
+      <useVariableSubstitution>T</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>Athena</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>560</xloc>
+      <yloc>112</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Success</name>
+      <description/>
+      <type>SUCCESS</type>
+      <attributes/>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>288</xloc>
+      <yloc>256</yloc>
+      <attributes_kjc/>
+    </entry>
+  </entries>
+  <hops>
+    <hop>
+      <from>Start</from>
+      <to>OnlyPartitions</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>OnlyPartitions</from>
+      <to>AllObjects</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>AllObjects</from>
+      <to>Success 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>OnlyPartitions</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+  </hops>
+  <notepads>
+  </notepads>
+  <attributes>
+    <group>
+      <name>METASTORE.pentaho</name>
+      <attribute>
+        <key>Default Run Configuration</key>
+        <value>{"namespace":"pentaho","id":"Default Run Configuration","name":"Default Run Configuration","description":"Defines a default run configuration","metaStoreName":null}</value>
+      </attribute>
+    </group>
+    <group>
+      <name>{"_":"Embedded MetaStore Elements","namespace":"pentaho","type":"Default Run Configuration"}</name>
+      <attribute>
+        <key>Pentaho local</key>
+        <value>{"children":[{"children":[],"id":"server","value":null},{"children":[],"id":"clustered","value":"N"},{"children":[],"id":"name","value":"Pentaho local"},{"children":[],"id":"description","value":null},{"children":[],"id":"pentaho","value":"N"},{"children":[],"id":"readOnly","value":"Y"},{"children":[],"id":"sendResources","value":"N"},{"children":[],"id":"logRemoteExecutionLocally","value":"N"},{"children":[],"id":"remote","value":"N"},{"children":[],"id":"local","value":"Y"},{"children":[],"id":"showTransformations","value":"N"}],"id":"Pentaho local","value":null,"name":"Pentaho local","owner":null,"ownerPermissionsList":[]}</value>
+      </attribute>
+    </group>
+  </attributes>
+</job>
